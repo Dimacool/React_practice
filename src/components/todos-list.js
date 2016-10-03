@@ -4,8 +4,9 @@ import TodosListItem from './todos-list-item';
 import _ from 'lodash';
 export default class TodosList extends React.Component {
     renderItems() {
+       const props = _.omit(this.props, 'todos');
        return _.map(this.props.todos, (todo, index) => <TodosListItem key={index
-       } {...todo}/>);
+       } {...todo} {...props}/>);
     }
 
     render() {

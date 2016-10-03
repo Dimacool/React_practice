@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class TodoList extends React.Component {
+export default class CreateTodo extends React.Component {
     render() {
         return (
             <form onSubmit={this.handleCreate.bind(this)}>
@@ -11,5 +11,7 @@ export default class TodoList extends React.Component {
     }
     handleCreate(event) {
        event.preventDefault();
+       this.props.createTask(this.refs.createInput.value);
+       this.refs.createInput.value = '';
     }
 }
